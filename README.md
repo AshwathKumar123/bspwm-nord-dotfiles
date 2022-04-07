@@ -2,7 +2,7 @@
 
 ---
 
-##  Info:
+## :blossom: Info:
 - OS: Arch Linux
 - Editor: SpaceVim
 - Shell: Bash
