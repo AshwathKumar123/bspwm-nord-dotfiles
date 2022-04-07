@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+#
+# Script name: dmconf
+# Description: Choose from a list of configuration files to edit.
+# Dependencies: dmenu
+# GitLab: https://www.gitlab.com/dwt1/dmscripts
+# Contributors: Derek Taylor
+
+# Defining the text editor to use.
+# DMENUEDITOR="vim"
+# DMENUEDITOR="nvim"
+# DMEDITOR="emacsclient -c -a emacs"
+DMEDITOR="vim"
+
+# An array of options to choose.
+# You can edit this list to add/remove config files.
+declare -a options=(
+"alacritty - $HOME/.config/alacritty/alacritty.yml"
+"bash - $HOME/.bashrc"
+"bspwm - $HOME/.config/bspwm/bspwmrc"
+"i3 - $HOME/.config/i3/config"
+"i3-status - $HOME/.config/i3status/i3status.conf"
+"picom - $HOME/.config/picom/picom.conf"
+"polybar-bspwm - $HOME/.config/polybar/nord-bspwm/configs/normal/config.ini"
+"polybar-i3 - $HOME/.config/polybar/nord-i3/configs/normal/config.ini"
+"sxhkd - $HOME/.config/sxhkd/sxhkdrc"
+"spacevim - $HOME/.SpaceVim.d/init.toml"
+"xinitrc - $HOME/.xinitrc"
+"xresources - $HOME/.Xresources"
+"quit"
+)
+
+# Piping the above array into dmenu.
+# We use "printf '%s\n'" to format the array one item to a line.
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 20 -p 'Edit config:')
+
+# What to do when/if we choose 'quit'.
+if [[ "$choice" == "quit" ]]; then
+    echo "Program terminated." && exit 1
+
+# What to do when/if we choose a file to edit.
+elif [ "$choice" ]; then
+	cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+	$DMEDITOR "$cfg"
+
+# What to do if we just escape without choosing anything.
+else
+    echo "Program terminated." && exit 1
+fi
