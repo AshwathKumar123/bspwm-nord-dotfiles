@@ -1,3 +1,6 @@
+![Dotfiles](assets/dotfiles.png)
+
+
 ### Screenshots
 
 # Wallpaper
