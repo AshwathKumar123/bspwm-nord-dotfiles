@@ -1,6 +1,3 @@
-![Dotfiles](https://raw.githubusercontent.com/thanhvule0310/dotfiles/main/assets/dotfiles.png)
-
-
 ### Screenshots
 
 # Wallpaper
