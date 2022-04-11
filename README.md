@@ -6,8 +6,8 @@
 - OS: Arch Linux
 - Editor: SpaceVim
 - Shell: Bash
-- Terminal - Alacritty
-- WM - BSPWM
+- Terminal: Alacritty
+- WM: BSPWM
 
 ---
 
